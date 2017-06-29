@@ -8,7 +8,7 @@ Should stop nyancat from being installed on your machine, high-jacks brew or apt
 
 ## Motivation
 
-Ronald Ekambi. That is all.
+Ronald. That is all.
 
 ## Installation
 
