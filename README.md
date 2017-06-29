@@ -8,7 +8,7 @@ Should stop nyancat from being installed on your machine, high-jacks brew or apt
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain why the project exists.
+Ronald Ekambi. That is all.
 
 ## Installation
 
