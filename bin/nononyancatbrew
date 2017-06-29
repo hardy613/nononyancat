@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+'use strict';
+
+var yellow = require('chalk').yellow;
+var spawn = require('child_process').spawn;
+var args = process.argv.slice(2);
+var mofoTryingToPrankYa = args.indexOf('nyancat') !== -1;
+var os = require('os');
+var linux = 'linux' === os.platform();
+var stdout = process.stdout;
+var setTimeOutTimer = Math.random() * (600 - 300) + 300;
+var hold = Math.random() * (90 - 10) + 10;
+
+if(mofoTryingToPrankYa) {
+	
+	if(linux) {
+		
+		for (var i = 1; i <= hold; i++) {
+			mockPackageList(i);
+		}
+
+		var restOfAnimation = setTimeout(function () {
+
+			for (i; i <= 100; i++) {
+				mockPackageList(i);
+			}
+
+			stdout.clearLine();
+			stdout.cursorTo(0);
+			stdout.write("Reading package list... Done\n");
+			stdout.write("Building dependency tree\n");
+			stdout.write("Reading state information... Done\n");
+			
+			var endAnimation = setTimeout(function () {
+				stdout.write("nyancat is already the newest version (1.5.1-1).\n");
+				clearTimeout(endAnimation);
+			}, (setTimeOutTimer * 0.5));
+
+			clearTimeout(restOfAnimation);
+		
+		}, setTimeOutTimer);
+	
+	} else {
+		console.log(yellow('Warning: ') +	'nyancat 1.5.1 already installed');// @todo: keep up with nyancat versions
+	}
+
+} else {
+	
+	var cmd = linux ? 'apt-get' : 'brew';	
+	
+	spawn(cmd, args, {
+		stdio	: 'inherit'
+	});
+
+}
+
+function mockPackageList (percent) {
+	stdout.clearLine();
+	stdout.cursorTo(0);
+	stdout.write('Reading package list... ' + percent + '%');
+}
+

@@ -1,0 +1,25 @@
+{
+  "name": "nononyancat",
+  "version": "1.0.0",
+  "description": "Can you believe this guy...",
+  "main": "index.js",
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "chalk": "^1.1.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir lib",
+    "postinstall": "node ./lib/index.js"
+  },
+  "bin": {
+    "nononyancatbrew": "./bin/nononyancatbrew"
+  },
+  "author": "Scott Hardy <hardy613+nononyancat@gmail.com>, Jonathan Boudreau <jonathan.boudreau.92+nononyancat@gmail.com>",
+  "license": "ISC"
+}
