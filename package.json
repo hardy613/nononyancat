@@ -1,6 +1,6 @@
 {
   "name": "nononyancat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Can you believe this guy...",
   "main": "index.js",
 	"repository": {
@@ -25,5 +25,5 @@
     "nononyancatbrew": "./bin/nononyancatbrew"
   },
   "author": "Scott Hardy <hardy613+nononyancat@gmail.com>, Jonathan Boudreau <jonathan.boudreau.92+nononyancat@gmail.com>",
-  "license": "ISC"
+  "license": "MIT"
 }
