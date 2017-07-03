@@ -8,6 +8,9 @@ const append = fs.appendFile;
 const read = fs.readFile;
 const env  = process.env;
 const linux = 'linux' === os.platform();
+const file = linux ? '.bashrc' : '.bash_profile';
+const pathedFile = `${env.HOME}/${file}`;
+const cmd = linux ? 'apt-get' : 'brew';
 /**
  * callbacks
  */
@@ -41,10 +44,7 @@ function nyancatRemoved(err, stdout, stderr, cb) {
 
 function stopNyancatInstall (cb) {
 
-	let file = linux ? '.bashrc' : '.bash_profile';
-	let cmd = linux ? 'apt-get' : 'brew';
-
-	read(`${env.HOME}/${file}`, (err, data) => {
+	read(pathedFile, (err, data) => {
 		if (err) {
 			return cb(err);
 		}
@@ -53,7 +53,7 @@ function stopNyancatInstall (cb) {
 			return cb();
 		}
 
-		append(`${env.HOME}/${file}`, `alias ${cmd}='nononyancatbrew'`, cb);
+		append(pathedFile, `alias ${cmd}='nononyancatbrew'`, cb);
 	});
 }
 
@@ -68,7 +68,7 @@ function end (err) {
 		console.error(err);
 		process.exit(1);
 	} else {
-		console.log('Good to go.');
+		console.log(`Please 'source ${pathedFile}' to complete installation.`);
 		process.exit(0);
 	}
 };
